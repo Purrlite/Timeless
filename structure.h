@@ -17,9 +17,11 @@ typedef struct {
 
   uint8_t faction;
 
-  uint8_t planet_at; // ID of the planet at which the structure is
+  // ID of the planet at which the structure is
+  uint8_t planet_at;
 
-  uint8_t placement; // placement on the planet
+  // placement on the planet (e.g. top, bottom, etc.)
+  uint8_t placement;
 } structure;
 
 #endif // STRUCTURE_H_INCLUDED

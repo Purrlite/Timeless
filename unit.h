@@ -11,11 +11,15 @@ typedef struct {
 
   uint16_t damage_per_attack;
   float attack_cooldown;
-  float current_attack_cooldown; // Current cooldown = time before next attack
+  // Current cooldown = time before next attack
+  float current_attack_cooldown;
 
-  float jump_cooldown; // cooldown between planet jumps
+  // Time it takes before planet jump is finished
+  float jump_cooldown;
+  // Time before the current jump finishes
   float current_jump_cooldown;
 } unit_stats;
+
 
 typedef struct {
   // Might use this to assign short names like TOR, NOVA, XER
@@ -30,7 +34,8 @@ typedef struct {
 
   uint8_t faction;
 
-  uint8_t planet_at; // Planet ID of the planet the unit is at
+  // Planet ID of the planet the unit is at
+  uint8_t planet_at;
 } unit;
 
 #endif // UNIT_H_INCLUDED

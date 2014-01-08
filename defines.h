@@ -3,6 +3,7 @@
 
 // General:
 #define NONE       0
+#define NEUTRAL    0
 
 // Factions:
 #define HUMANS     1
