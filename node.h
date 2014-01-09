@@ -1,7 +1,10 @@
 #ifndef PLANET_H_INCLUDED
 #define PLANET_H_INCLUDED
 
+#include <stdint.h>
+
 #include "structure.h"
+#include "unit.h"
 
 typedef struct {
   // True if planet has shield protecting it (even if at 0 health)
@@ -24,10 +27,13 @@ typedef struct {
 typedef struct NODE {
   char *name;
 
-  // Array of structures on the planet
+  // Array of pointers to structures on the planet
   structure *structures;
 
-  // Array of connected nodes and a number of them
+  // Array of pointers to units on the planet
+  unit *units;
+
+  // Array of connected nodes
   struct NODE *nodes;
 
   node_bools bools;
@@ -39,8 +45,8 @@ typedef struct NODE {
 
   uint8_t type;
 
-  // The one owning the planet; 0 = neutral, 1 = player 1, etc.
-  uint8_t owner;
+  // The one owning the planet; -1 = AI, 0 = neutral, 1 = player 1, etc.
+  int8_t owner;
 } node;
 
 #endif // PLANET_H_INCLUDED
