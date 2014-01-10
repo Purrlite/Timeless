@@ -38,7 +38,7 @@ typedef struct NODE {
   // Array of pointers to units on the planet
   unit *units;
 
-  // Array of connected nodes
+  // Array of pointers of connected nodes
   struct NODE **nodes;
 
   node_bools bools;
