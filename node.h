@@ -2,9 +2,15 @@
 #define PLANET_H_INCLUDED
 
 #include <stdint.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
+#include "defines.h"
 #include "structure.h"
 #include "unit.h"
+#include "errors.h"
+
+typedef int node_connection_type;
 
 typedef struct {
   // True if planet has shield protecting it (even if at 0 health)
@@ -23,7 +29,6 @@ typedef struct {
   unsigned is_a_starting_planet :1 ;
 } node_bools;
 
-
 typedef struct NODE {
   char *name;
 
@@ -34,7 +39,7 @@ typedef struct NODE {
   unit *units;
 
   // Array of connected nodes
-  struct NODE *nodes;
+  struct NODE **nodes;
 
   node_bools bools;
 
@@ -48,5 +53,16 @@ typedef struct NODE {
   // The one owning the planet; -1 = AI, 0 = neutral, 1 = player 1, etc.
   int8_t owner;
 } node;
+
+#define new_node_bool(shield, colonized, colonizable, visible, in_FOW, starting_planet)\
+  ( (node_bools){ shield, colonized, colonizable, visible, in_FOW, starting_planet } )
+
+// Creates a new node (might rework later)
+#define new_node(name, structures, units, connected_nodes, bools, shield_health,\
+                    number_of_connections, type, owner)\
+  { name, structures, units, connected_nodes, bools, shield_health, number_of_connections,\
+type, owner }
+
+error_flag connect_nodes(node *node1, node *node2, node_connection_type type) ;
 
 #endif // PLANET_H_INCLUDED
