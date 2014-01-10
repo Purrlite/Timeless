@@ -37,6 +37,10 @@
 		</Unit>
 		<Unit filename="command.h" />
 		<Unit filename="defines.h" />
+		<Unit filename="errors.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="errors.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -44,10 +48,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="map.h" />
-		<Unit filename="planet.c">
+		<Unit filename="node.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="planet.h" />
+		<Unit filename="node.h" />
 		<Unit filename="structure.c">
 			<Option compilerVar="CC" />
 		</Unit>

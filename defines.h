@@ -35,9 +35,9 @@
 #define EMPTY_SPACE   5
 
 // Node connection types:
-#define BOTH_WAYS   1
-#define ONLY_1_TO_2 2
-#define ONLY_2_TO_1 3
+#define _1_TO_2   1
+#define _2_TO_1   2
+#define BOTH_WAYS 3
 
 // Owner:
 #define PLAYER_1 1

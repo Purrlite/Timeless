@@ -1,0 +1,48 @@
+# depslib dependency file v1.0
+1388975971 source:c:\git repositories\timeless\command.c
+
+1389366817 source:c:\git repositories\timeless\errors.c
+	<stdlib.h>
+	<stdio.h>
+	"errors.h"
+
+1389366778 c:\git repositories\timeless\errors.h
+	<stdbool.h>
+	"defines.h"
+
+1389375840 c:\git repositories\timeless\defines.h
+
+1389369754 source:c:\git repositories\timeless\main.c
+	<stdio.h>
+	"node.h"
+	"defines.h"
+
+1389377759 c:\git repositories\timeless\node.h
+	<stdint.h>
+	<stdlib.h>
+	<stdbool.h>
+	"defines.h"
+	"structure.h"
+	"unit.h"
+	"errors.h"
+
+1389195632 c:\git repositories\timeless\structure.h
+	<stdint.h>
+	"defines.h"
+
+1389189245 c:\git repositories\timeless\unit.h
+	<stdint.h>
+	"defines.h"
+
+1389129323 source:c:\git repositories\timeless\map.c
+
+1388972616 source:c:\git repositories\timeless\structure.c
+
+1388974944 source:c:\git repositories\timeless\timeline.c
+
+1388974963 source:c:\git repositories\timeless\timewave.c
+
+1388972423 source:c:\git repositories\timeless\unit.c
+
+1389129310 source:c:\git repositories\timeless\node.c
+
