@@ -1,0 +1,6 @@
+# Code to test out the engine
+main.c
+
+# Irrelevant stuff
+./bin/*
+./obj/*
