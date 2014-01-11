@@ -14,18 +14,10 @@
 #define BAD_FUNCTION_ARGUMENT  -5
 #define POINTER_ALREADY_IN_USE -6
 
-// Intended amount of players:
-#define V1v1  0x1
-#define V2v2  0x2
-#define V3v3  0x4
-#define V4v4  0x8
-// Free For All
-#define FFA_3 0xF
-#define FFA_4 0x10
-#define FFA_5 0x20
-#define FFA_6 0x40
-#define FFA_7 0x80
-#define FFA_8 0xF0
+// Intended modes:
+#define XvX   0x1  // e.g. 1v1
+#define XvXvX 0x2  // e.g. 1v1v1
+#define FFA   0x4  // Free for all
 
 // Node types:
 #define BIG_PLANET    1

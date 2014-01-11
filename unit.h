@@ -22,13 +22,18 @@ typedef struct {
 
 
 typedef struct {
-  // Might use this to assign short names like TOR, NOVA, XER
+  // Not sure if I need it, but would be good in general
   char *name;
 
   unit_stats *stats;
 
   // Needs to be hashed based on time of creation, place and (type or name)
   uint64_t unit_ID;
+
+  /* How many units it takes for them to count as 1 unit for CE purposes although even when the
+      amount of units being controlled is under this number, it will still take 1 CE to order them.
+  */
+  uint16_t units_per_1CE_order;
 
   uint8_t type;
 
