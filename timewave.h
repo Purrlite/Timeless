@@ -1,6 +1,0 @@
-#ifndef TIMEWAVE_H_INCLUDED
-#define TIMEWAVE_H_INCLUDED
-
-
-
-#endif // TIMEWAVE_H_INCLUDED
