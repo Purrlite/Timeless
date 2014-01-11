@@ -60,10 +60,12 @@ typedef struct NODE {
 // Creates a new node (might rework later)
 #define new_node(name, structures, units, connected_nodes, bools, shield_health,\
                     number_of_connections, type, owner)\
-  { name, structures, units, connected_nodes, bools, shield_health, number_of_connections,\
-type, owner }
+  ( { name, structures, units, connected_nodes, bools, shield_health, number_of_connections,\
+type, owner } )
 
 // Connects 2 nodes together; can connect them to work only 1 way or both ways
 error_flag connect_nodes(node *node1, node *node2, node_connection_type type) ;
+
+error_flag unconnect_nodes(node *node1, node *node2, node_connection_type type) ;
 
 #endif // PLANET_H_INCLUDED
