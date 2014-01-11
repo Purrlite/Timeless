@@ -32,42 +32,42 @@
 			<Add option="-Wextra" />
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="command.c">
+		<Unit filename="source/command.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="command.h" />
-		<Unit filename="defines.h" />
-		<Unit filename="errors.c">
+		<Unit filename="source/command.h" />
+		<Unit filename="source/defines.h" />
+		<Unit filename="source/errors.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="errors.h" />
-		<Unit filename="main.c">
+		<Unit filename="source/errors.h" />
+		<Unit filename="source/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="map.c">
+		<Unit filename="source/map.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="map.h" />
-		<Unit filename="node.c">
+		<Unit filename="source/map.h" />
+		<Unit filename="source/node.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="node.h" />
-		<Unit filename="structure.c">
+		<Unit filename="source/node.h" />
+		<Unit filename="source/structure.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="structure.h" />
-		<Unit filename="timeline.c">
+		<Unit filename="source/structure.h" />
+		<Unit filename="source/timeline.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="timeline.h" />
-		<Unit filename="timewave.c">
+		<Unit filename="source/timeline.h" />
+		<Unit filename="source/timewave.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="timewave.h" />
-		<Unit filename="unit.c">
+		<Unit filename="source/timewave.h" />
+		<Unit filename="source/unit.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="unit.h" />
+		<Unit filename="source/unit.h" />
 		<Extensions>
 			<DoxyBlocks>
 				<comment_style block="0" line="0" />
