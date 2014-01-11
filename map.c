@@ -8,7 +8,7 @@ error_flag create_map(map *new_map, char *name, map_settings settings) {
     new_map = malloc( sizeof(map) );
 
     if(new_map == NULL)
-      return OUT_OF_MEMORY_ERROR
+      return OUT_OF_MEMORY_ERROR;
   }
 
   new_map->nodes = NULL;

@@ -1,6 +1,6 @@
 #include "node.h"
 
-error_flag connect_connected_nodes(node *node1, node *node2, node_connection_type type) {
+error_flag connect_nodes(node *node1, node *node2, node_connection_type type) {
   if(node1 == NULL || node2 == NULL)
     return BAD_FUNCTION_ARGUMENT;
 
@@ -38,7 +38,7 @@ error_flag connect_connected_nodes(node *node1, node *node2, node_connection_typ
 }
 
 
-error_flag unconnect_connected_nodes(node *node1, node *node2, node_connection_type type) {
+error_flag unconnect_nodes(node *node1, node *node2, node_connection_type type) {
   if(node1 == NULL || node2 == NULL)
     return BAD_FUNCTION_ARGUMENT;
 
