@@ -9,9 +9,9 @@ The engine for making a multiplayer strategy game with an active time travel mec
 The engine works with a map made out of nodes, which act as places where you can build structures and your units fight. The nodes are abstract and don't have any sum-maps on them, so there is no positioning of units involved.
 
 ### TODO:
+* Make a settings file that people can edit to change stuff like default values that are assigned to maps or unit, structure and node types, etc. (needed for saving maps)
 * Get nodes and maps working
 * Make a viewable map with nodes working (Maybe also make a map viewer.exe or something
 * Get Structures and units working
 * Get timewaves, timeline and commands working
 * Get prototype working
-* Make a settings file that people can edit to change stuff like default values that are assigned to maps or unit, structure and node types, etc.
