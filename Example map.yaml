@@ -6,10 +6,10 @@ description: Just a simple map to show how maps are saved.
 
 map settings:
     min players: 2
-	max players: 4
-	modes:
-		- XvX
-		- FFA
+    max players: 4
+    modes:
+        - XvX
+        - FFA
 
 ### Three '#' are used to separate different nodes and the rest
 
@@ -20,11 +20,11 @@ Rare resources: 100
 
 bools:
     - unlimited CR: Yes
-	- starting planet: Yes
+    - starting planet: Yes
 
 Connected nodes:
-	- *node3
-	
+    - *node3
+    
 ###
 
 Name: Htrea    &node2
@@ -33,11 +33,11 @@ owner: Player 2
 Rare resources: 100
 
 bools:
-	- unlimited CR: Yes
-	- starting planet: Yes
-	
+    - unlimited CR: Yes
+    - starting planet: Yes
+    
 Connected nodes:
-	- *node3
+    - *node3
 
 ###
 
@@ -45,10 +45,10 @@ Name: None    &node3
 Type: Empty
 
 connected nodes:
-	- *node1
-	- *node2
-	- *node4
-	
+    - *node1
+    - *node2
+    - *node4
+    
 ###
 
 Name: Anthea   &node4
@@ -57,8 +57,8 @@ Common resources: 100000
 Rare resources: 100
 
 Connected nodes:
-	- *node3
-	
+    - *node3
+    
 ###
 
 Name: Nerto    &node5
@@ -66,7 +66,7 @@ Type: Asteroids
 Common resources: 1000
 
 Connected nodes:
-	- *node1
-	- *node2
-	
+    - *node1
+    - *node2
+    
 ...
