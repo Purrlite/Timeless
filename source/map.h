@@ -25,8 +25,8 @@ typedef struct {
 // Creates a new map, assumes that the map given by a pointer from new_map isn't initialized
 error_flag create_map(map *new_map, char *name, map_settings settings) ;
 
-// Closes/deallocates the map
-error_flag close_map(map *_map) ;
+// Frees/deallocs the map
+error_flag free_map(map *_map) ;
 
 error_flag save_map(map *new_map, char *file_name) ;
 error_flag load_map(map *new_map, char *file_name) ;
