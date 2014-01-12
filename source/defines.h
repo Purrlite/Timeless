@@ -19,16 +19,6 @@
 #define XvXvX 0x2  // e.g. 1v1v1
 #define FFA   0x4  // Free for all
 
-// Node types:
-#define BIG_PLANET    1
-#define MEDIUM_PLANET 2
-#define SMALL_PLANET  3
-#define ASTEROIDS     4
-#define EMPTY_SPACE   5
-#define BLACK_HOLE    6
-#define SUN           7
-#define STAR          8
-
 // Node connection types:
 #define _1_TO_2   1
 #define _2_TO_1   2
@@ -52,13 +42,6 @@
 #define AI_7     -7
 #define AI_8     -8
 
-// Factions:
-#define HUMANS     1
-
-// Structure types:
-#define COMMON_RESOURCE_GATHERER 1
-#define FACTORY                  2
-
 // Placement of structures:
 #define ORBIT       1
 #define ON_PLANET_1 2
@@ -71,14 +54,6 @@
 #define BOTTOM      3
 #define RIGHT       4
 #define LEFT        5
-
-// Unit types:
-#define BUILDER    1
-#define COLONIZER  2
-#define SCOUT      3
-#define SWARM      4
-#define ANTI_SWARM 5
-#define ANTI_HEAVY 6
 
 
 #endif // DEFINES_H_INCLUDED
