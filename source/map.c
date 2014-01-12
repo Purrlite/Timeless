@@ -30,8 +30,6 @@ error_flag create_map(map *new_map, char *name, map_settings *settings) {
 
 
 error_flag free_map(map *_map) {
-  int i;
-
   if(_map == NULL)
     return BAD_FUNCTION_ARGUMENT;
 
