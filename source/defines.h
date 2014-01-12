@@ -25,6 +25,9 @@
 #define SMALL_PLANET  3
 #define ASTEROIDS     4
 #define EMPTY_SPACE   5
+#define BLACK_HOLE    6
+#define SUN           7
+#define STAR          8
 
 // Node connection types:
 #define _1_TO_2   1
@@ -57,11 +60,17 @@
 #define FACTORY                  2
 
 // Placement of structures:
-#define ORBIT  1
-#define TOP    2
-#define RIGHT  3
-#define BOTTOM 4
-#define LEFT   5
+#define ORBIT       1
+#define ON_PLANET_1 2
+#define ON_PLANET_2 3
+#define ON_PLANET_3 4
+#define ON_PLANET_4 5
+#define ON_PLANET_5 6
+// Alternate placement:
+#define TOP         2
+#define BOTTOM      3
+#define RIGHT       4
+#define LEFT        5
 
 // Unit types:
 #define BUILDER    1
