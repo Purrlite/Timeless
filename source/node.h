@@ -19,6 +19,8 @@ typedef struct {
   unsigned is_colonized                  :1 ;
   unsigned is_colonizable                :1 ;
 
+  unsigned is_destructible               :1 ;
+
   // For hiding planets that you don't have connection to
   unsigned is_visible                    :1 ;
 
@@ -33,6 +35,14 @@ typedef struct {
   unsigned has_unlimited_rare_resource   :1 ;
 } node_bools;
 
+// Max and current amount of resources on the planet
+typedef struct {
+  uint32_t max_common;
+  uint32_t max_rare;
+  uint32_t common;
+  uint32_t rare;
+} node_resources;
+
 typedef struct NODE {
   char *name;
 
@@ -42,18 +52,17 @@ typedef struct NODE {
   // Array of pointers to units on the planet
   unit *units;
 
+  node_resources *resources;
+
   // Array of pointers of connected nodes
   struct NODE **connected_nodes;
 
   node_bools bools;
 
-  // Max and current amount of resources on the planet
-  uint32_t max_common_resources;
-  uint32_t max_rare_resources;
-  uint32_t common_resources;
-  uint32_t rare_resources;
+  uint32_t shield_health;
 
-  uint16_t shield_health;
+  // Health of planet if it's destructible
+  uint32_t planet_health;
 
   // Number of nodes connected to this node
   uint8_t number_of_connections;
@@ -64,19 +73,22 @@ typedef struct NODE {
   int8_t owner;
 } node;
 
-#define new_node_bool(shield, colonized, colonizable, visible, in_FOW, starting_planet,\
-                       unlimited_CR, unlimited_RR)\
-  ( (node_bools){ shield, colonized, colonizable, visible, in_FOW, starting_planet, unlimited_CR,\
+#define create_node_bool(shield, colonized, colonizable, visible, in_FOW, starting_planet,\
+                         unlimited_CR, unlimited_RR)\
+  ( { shield, colonized, colonizable, visible, in_FOW, starting_planet, unlimited_CR,\
 unlimited_RR } )
 
+#define create_node_resources(max_common, max_rare, common, rare)\
+  ( { max_common, max_rare, common, rare } )
+
 // Creates a new node (might rework later)
-#define new_node(name, structures, units, connected_nodes, bools, max_CR, max_RR, CR, RR,\
-                 shield_health, number_of_connections, type, owner)\
-  ( { name, structures, units, connected_nodes, bools, max_CR, max_RR, CR, RR, shield_health,\
+#define create_node(name, structures, units, connected_nodes, bools, resources, shield_health,\
+                 planet_health, number_of_connections, type, owner)\
+  ( { name, structures, units, connected_nodes, bools, resources, shield_health, planet_health,\
 number_of_connections, type, owner } )
 
-#define new_node_NULL() \
-  { }
+#define create_node_NULL() \
+  ( { } )
 
 // Connects 2 nodes together; can connect them to work only 1 way or both ways
 error_flag connect_nodes(node *node1, node *node2, node_connection_type type) ;
