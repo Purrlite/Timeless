@@ -23,7 +23,7 @@ typedef struct {
 } map;
 
 // Creates a new map, assumes that the map given by a pointer from new_map isn't initialized
-error_flag create_map(map *new_map, char *name, map_settings settings) ;
+error_flag create_map(map *new_map, char *name, map_settings *settings) ;
 
 // Frees/deallocs the map
 error_flag free_map(map *_map) ;

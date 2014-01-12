@@ -12,7 +12,6 @@
 #define OUT_OF_MEMORY_ERROR    -3
 #define FILE_ERROR             -4
 #define BAD_FUNCTION_ARGUMENT  -5
-#define POINTER_ALREADY_IN_USE -6
 
 // Intended modes:
 #define XvX   0x1  // e.g. 1v1

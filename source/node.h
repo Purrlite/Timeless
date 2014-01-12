@@ -88,7 +88,7 @@ unlimited_RR } )
 number_of_connections, type, owner } )
 
 #define create_node_NULL() \
-  ( { } )
+  (node){ }
 
 // Connects 2 nodes together; can connect them to work only 1 way or both ways
 error_flag connect_nodes(node *node1, node *node2, node_connection_type type) ;

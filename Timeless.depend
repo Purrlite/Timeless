@@ -49,7 +49,7 @@
 
 1389484099 source:c:\git repositories\timeless\source\command.c
 
-1389484099 source:c:\git repositories\timeless\source\errors.c
+1389536944 source:c:\git repositories\timeless\source\errors.c
 	<stdlib.h>
 	<stdio.h>
 	"errors.h"
@@ -58,14 +58,15 @@
 	<stdbool.h>
 	"defines.h"
 
-1389525851 c:\git repositories\timeless\source\defines.h
+1389536101 c:\git repositories\timeless\source\defines.h
 
-1389527024 source:c:\git repositories\timeless\source\main.c
+1389536998 source:c:\git repositories\timeless\source\main.c
 	<stdio.h>
+	"yaml.h"
 	"node.h"
 	"defines.h"
 
-1389487614 c:\git repositories\timeless\source\node.h
+1389537287 c:\git repositories\timeless\source\node.h
 	<stdint.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -81,4 +82,33 @@
 1389458091 c:\git repositories\timeless\source\unit.h
 	<stdint.h>
 	"defines.h"
+
+1389484099 source:c:\git repositories\timeless\source\node.c
+	"node.h"
+
+1389484099 source:c:\git repositories\timeless\source\structure.c
+
+1389484099 source:c:\git repositories\timeless\source\timeline.c
+
+1389484099 source:c:\git repositories\timeless\source\timewave.c
+
+1389484099 source:c:\git repositories\timeless\source\unit.c
+
+1389535745 source:c:\git repositories\timeless\source\engine.c
+
+1306803522 c:\yaml-0.1.4\include\yaml.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+
+1389537301 source:c:\git repositories\timeless\source\map.c
+	<stdlib.h>
+	<stdio.h>
+	"map.h"
+	"errors.h"
+	"node.h"
+
+1389537055 c:\git repositories\timeless\source\map.h
+	"node.h"
+	"errors.h"
 

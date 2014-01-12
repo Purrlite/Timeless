@@ -1,8 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include <yaml.h>
+
 #include "map.h"
 #include "errors.h"
+#include "node.h"
 
 error_flag create_map(map *new_map, char *name, map_settings *settings) {
   if(name == NULL)
@@ -62,7 +65,7 @@ error_flag add_node_to_map(map *_map, node *_node) {
     return OUT_OF_MEMORY_ERROR;
 
   if(_node == NULL) {
-    _map->nodes[i] = &(new_node_NULL());
+    _map->nodes[i] = &(create_node_NULL());
   } else {
     _map->nodes[i] = _node;
   }

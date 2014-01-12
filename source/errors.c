@@ -28,10 +28,6 @@ void write_error_message(error_flag flag, bool fatal) {
       fputs("Bad argument to function was supplied!\n", stderr);
       break;
 
-    case POINTER_ALREADY_IN_USE:
-      fputs("Pointer is in use when it shouldn't be!\n", stderr);
-      break;
-
     default:
       fputs("Some unknown error has occurred!\n", stderr);
   }
