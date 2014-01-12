@@ -1,8 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include <yaml.h>
-
 #include "map.h"
 #include "errors.h"
 #include "node.h"
@@ -62,7 +60,7 @@ error_flag save_map(map *new_map, char *file_name) {
       return ABORTED_BY_USER;
   }
 
-  // Here be YAML parser
+
 }
 
 

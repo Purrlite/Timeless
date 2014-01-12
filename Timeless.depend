@@ -100,7 +100,7 @@
 	<stdio.h>
 	<string.h>
 
-1389561093 source:c:\git repositories\timeless\source\map.c
+1389561813 source:c:\git repositories\timeless\source\map.c
 	<stdlib.h>
 	<stdio.h>
 	<yaml.h>
@@ -114,5 +114,11 @@
 	"errors.h"
 
 1389561452 c:\git repositories\timeless\source\warnings.h
+	"errors.h"
+
+1389561888 source:c:\git repositories\timeless\source\warnings.c
+	<stdbool.h>
+	<stdio.h>
+	"warnings.h"
 	"errors.h"
 

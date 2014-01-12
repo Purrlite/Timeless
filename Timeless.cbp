@@ -31,11 +31,7 @@
 		<Compiler>
 			<Add option="-Wextra" />
 			<Add option="-Wall" />
-			<Add directory="C:/yaml-0.1.4/include" />
 		</Compiler>
-		<Linker>
-			<Add directory="C:/yaml-0.1.4/include" />
-		</Linker>
 		<Unit filename="source/command.c">
 			<Option compilerVar="CC" />
 		</Unit>
