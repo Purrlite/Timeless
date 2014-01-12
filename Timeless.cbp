@@ -37,6 +37,10 @@
 		</Unit>
 		<Unit filename="source/command.h" />
 		<Unit filename="source/defines.h" />
+		<Unit filename="source/engine.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="source/engine.h" />
 		<Unit filename="source/errors.c">
 			<Option compilerVar="CC" />
 		</Unit>
