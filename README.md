@@ -10,7 +10,8 @@ The engine works with a map made out of nodes, which act as places where you can
 
 ### TODO:
 * Get nodes and maps working
+* Make a viewable map with nodes working (Maybe also make a map viewer.exe or something
 * Get Structures and units working
-* Get timewaves and timeline working
+* Get timewaves, timeline and commands working
 * Get prototype working
-* Make a settings file that people can edit to change stuff like default values that are assigned to maps
+* Make a settings file that people can edit to change stuff like default values that are assigned to maps or unit, structure and node types, etc.
