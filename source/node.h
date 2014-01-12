@@ -64,8 +64,10 @@ typedef struct NODE {
   int8_t owner;
 } node;
 
-#define new_node_bool(shield, colonized, colonizable, visible, in_FOW, starting_planet, unlimited_CR, unlimited_RR)\
-  ( (node_bools){ shield, colonized, colonizable, visible, in_FOW, starting_planet, unlimited_CR, unlimited_RR } )
+#define new_node_bool(shield, colonized, colonizable, visible, in_FOW, starting_planet,\
+                       unlimited_CR, unlimited_RR)\
+  ( (node_bools){ shield, colonized, colonizable, visible, in_FOW, starting_planet, unlimited_CR,\
+unlimited_RR } )
 
 // Creates a new node (might rework later)
 #define new_node(name, structures, units, connected_nodes, bools, max_CR, max_RR, CR, RR,\
