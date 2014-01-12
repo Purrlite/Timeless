@@ -1,4 +1,4 @@
-# Timeless
+﻿# Timeless
 
 A meta-time strategy engine.
 
