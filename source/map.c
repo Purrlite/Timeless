@@ -6,6 +6,7 @@
 #include "map.h"
 #include "errors.h"
 #include "node.h"
+#include "warnings.h"
 
 error_flag create_map(map *new_map, char *name, map_settings *settings) {
   if(name == NULL)
@@ -43,8 +44,27 @@ error_flag free_map(map *_map) {
 
 error_flag save_map(map *new_map, char *file_name) {
   FILE *map_file;
+  yaml_parser_t parser;
+  yaml_event_t event;
+  int flag;
 
+  yaml_parser_initialize(&parser);
 
+  map_file = fopen(file_name, "wx");
+
+  if(map_file == NULL) {
+    flag = overwrite_file_message(file_name);
+
+    if(flag == true) {
+      map_file = fopen(file_name, "w");
+
+      if(map_file == NULL)
+        return FILE_ERROR;
+    } else
+      return ABORTED_BY_USER;
+  }
+
+  // Here be YAML parser
 }
 
 
