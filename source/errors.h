@@ -9,6 +9,6 @@
 typedef int error_flag;
 
 // Writes a message to stderr if an error has occurred, otherwise does nothing.
-void write_error_message(error_flag flag, bool fatal);
+void write_error_message(error_flag flag, bool fatal) ;
 
 #endif // ERRORS_H_INCLUDED

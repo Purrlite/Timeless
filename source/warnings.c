@@ -1,3 +1,8 @@
+#include <stdbool.h>
+
+#include "warnings.h"
+#include "errors.h"
+
 error_flag overwrite_file_message(char *file_name) {
   char answer;
 
@@ -9,7 +14,7 @@ scan_for_answer:
   if(answer == 'Y' || answer == 'y') {
     return true;
   } else if(answer == 'N' || answer == 'n') {
-    return false
+    return false;
   } else {
     printf("You can only answer with Y or N. Try again: ");
     goto scan_for_answer;

@@ -76,6 +76,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="source/unit.h" />
+		<Unit filename="source/warnings.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="source/warnings.h" />
 		<Extensions>
 			<DoxyBlocks>
 				<comment_style block="0" line="0" />

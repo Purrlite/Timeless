@@ -12,6 +12,7 @@
 #define OUT_OF_MEMORY_ERROR    -3
 #define FILE_ERROR             -4
 #define BAD_FUNCTION_ARGUMENT  -5
+#define ABORTED_BY_USER        -6 // Not necessarily an error, but good to know when it happens
 
 // Intended modes:
 #define XvX   0x1  // e.g. 1v1
