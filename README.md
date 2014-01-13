@@ -15,4 +15,5 @@ The engine works with a map made out of nodes, which act as places where you can
 * Make a viewable map with nodes working (Maybe also make a map viewer.exe or something
 * Get Structures and units working
 * Get timewaves, timeline and commands working
+* Make the engine easily scriptable to the point that you can make the whole game just using scripts
 * Get prototype working
