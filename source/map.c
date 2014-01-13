@@ -40,11 +40,7 @@ error_flag free_map(map *_map) {
 
 error_flag save_map(map *new_map, char *file_name) {
   FILE *map_file;
-  yaml_parser_t parser;
-  yaml_event_t event;
   int flag;
-
-  yaml_parser_initialize(&parser);
 
   map_file = fopen(file_name, "wx");
 
