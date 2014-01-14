@@ -7,9 +7,10 @@
 
 typedef struct {
   int16_t current_health;
-  uint16_t max_health;
+  int16_t max_health;
 
   uint16_t damage_per_attack;
+  // Attack cooldown = time between attacks
   float attack_cooldown;
   // Current cooldown = time before next attack
   float current_attack_cooldown;

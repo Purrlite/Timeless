@@ -38,8 +38,10 @@ typedef struct {
 // Max and current amount of resources on the planet
 typedef struct {
   uint32_t max_common;
+  uint32_t max_uncommon;
   uint32_t max_rare;
   uint32_t common;
+  uint32_t uncommon;
   uint32_t rare;
 } node_resources;
 
@@ -78,8 +80,8 @@ typedef struct NODE {
   ( { shield, colonized, colonizable, visible, in_FOW, starting_planet, unlimited_CR,\
 unlimited_RR } )
 
-#define create_node_resources(max_common, max_rare, common, rare)\
-  ( { max_common, max_rare, common, rare } )
+#define create_node_resources(max_common, max_uncommon, max_rare, common, uncommon, rare)\
+  ( { max_common, max_uncommon, max_rare, common, uncommon, rare } )
 
 // Creates a new node (might rework later)
 #define create_node(name, structures, units, connected_nodes, bools, resources, shield_health,\
