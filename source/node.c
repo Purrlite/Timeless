@@ -66,3 +66,9 @@ error_flag unconnect_nodes(node *node1, node *node2, node_connection_type type) 
 
   return SUCCESS;
 }
+
+
+bool is_reachable(node *origin, node *destination) {
+
+
+}

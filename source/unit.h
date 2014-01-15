@@ -42,6 +42,9 @@ typedef struct {
 
   // Planet ID of the planet the unit is at
   uint8_t planet_at;
+
+  // The one owning the planet; -1 = AI player 1, 0 = neutral, 1 = player 1, etc.
+  int8_t owner;
 } unit;
 
 #endif // UNIT_H_INCLUDED

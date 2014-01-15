@@ -71,7 +71,7 @@ typedef struct NODE {
 
   uint8_t type;
 
-  // The one owning the planet; -1 = AI, 0 = neutral, 1 = player 1, etc.
+  // The one owning the planet; -1 = AI player 1, 0 = neutral, 1 = player 1, etc.
   int8_t owner;
 } node;
 
@@ -97,5 +97,8 @@ error_flag connect_nodes(node *node1, node *node2, node_connection_type type) ;
 
 // Disconnects specified connection(s) between nodes
 error_flag unconnect_nodes(node *node1, node *node2, node_connection_type type) ;
+
+// Returns whether or not it's possible to reach destination from origin
+bool is_reachable(node *origin, node *destination) ;
 
 #endif // PLANET_H_INCLUDED

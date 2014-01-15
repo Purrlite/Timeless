@@ -22,6 +22,9 @@ typedef struct {
 
   // placement on the planet (e.g. top, bottom, etc.)
   uint8_t placement;
+
+  // The one owning the planet; -1 = AI player 1, 0 = neutral, 1 = player 1, etc.
+  int8_t owner;
 } structure;
 
 #endif // STRUCTURE_H_INCLUDED
