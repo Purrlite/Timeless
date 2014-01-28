@@ -14,25 +14,26 @@ typedef int node_connection_type;
 
 typedef struct {
   // True if planet has shield protecting it (even if at 0 health)
-  unsigned has_shield                    :1 ;
+  unsigned has_shield                      :1 ;
 
-  unsigned is_colonized                  :1 ;
-  unsigned is_colonizable                :1 ;
+  unsigned is_colonized                    :1 ;
+  unsigned is_colonizable                  :1 ;
 
-  unsigned is_destructible               :1 ;
+  unsigned is_destructible                 :1 ;
 
   // For hiding planets that you don't have connection to
-  unsigned is_visible                    :1 ;
+  unsigned is_visible                      :1 ;
 
   // If yes, then you shouldn't be able to see what happens on it
-  unsigned is_in_FOW                     :1 ;
+  unsigned is_in_FOW                       :1 ;
 
   // Might not be needed, but could be useful when loading maps
-  unsigned is_a_starting_planet          :1 ;
+  unsigned is_a_starting_planet            :1 ;
 
   // If it has limited or unlimited amount of resources.
-  unsigned has_unlimited_common_resource :1 ;
-  unsigned has_unlimited_rare_resource   :1 ;
+  unsigned has_unlimited_common_resource   :1 ;
+  unsigned has_unlimited_uncommon_resource :1 ;
+  unsigned has_unlimited_rare_resource     :1 ;
 } node_bools;
 
 // Max and current amount of resources on the planet
@@ -76,9 +77,9 @@ typedef struct NODE {
 } node;
 
 #define create_node_bool(shield, colonized, colonizable, visible, in_FOW, starting_planet,\
-                         unlimited_CR, unlimited_RR)\
+                         unlimited_CR, unlimited_UR, unlimited_RR)\
   ( { shield, colonized, colonizable, visible, in_FOW, starting_planet, unlimited_CR,\
-unlimited_RR } )
+unlimited_UR, unlimited_RR } )
 
 #define create_node_resources(max_common, max_uncommon, max_rare, common, uncommon, rare)\
   ( { max_common, max_uncommon, max_rare, common, uncommon, rare } )
