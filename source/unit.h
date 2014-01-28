@@ -28,6 +28,9 @@ typedef struct {
 
   unit_stats *stats;
 
+  // Pointer to the node the unit is at
+  node *node_at;
+
   // Needs to be hashed based on time of creation, place and (type or name)
   uint64_t unit_ID;
 
@@ -39,9 +42,6 @@ typedef struct {
   uint8_t type;
 
   uint8_t faction;
-
-  // Planet ID of the planet the unit is at
-  uint8_t planet_at;
 
   // The one owning the planet; -1 = AI player 1, 0 = neutral, 1 = player 1, etc.
   int8_t owner;

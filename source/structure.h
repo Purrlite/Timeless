@@ -8,6 +8,9 @@
 typedef struct {
   char *name;
 
+  // Pointer to the node the unit is at
+  node *node_at;
+
   uint64_t structure_ID;
 
   int16_t current_health;
@@ -16,9 +19,6 @@ typedef struct {
   uint8_t type;
 
   uint8_t faction;
-
-  // ID of the planet at which the structure is
-  uint8_t planet_at;
 
   // placement on the planet (e.g. top, bottom, etc.)
   uint8_t placement;
