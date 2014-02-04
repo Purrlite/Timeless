@@ -1,4 +1,4 @@
-:: Makes a .dll file from .c file.
+:: Makes a .dll file from .c or .o file.
 ::  - second argument is for optional arguments for gcc compilation
 
 @echo off
