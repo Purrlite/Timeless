@@ -1,5 +1,7 @@
 :: Makes up to 9 .dll files from .o or .c files
 
+@echo off
+
 if "%~9" == ""  goto empty9
 
   if /I %~x9 == .o  call gcc -shared -o %~n9.dll %9
