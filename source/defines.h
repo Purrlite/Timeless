@@ -13,6 +13,7 @@
 #define FILE_ERROR             -4
 #define BAD_FUNCTION_ARGUMENT  -5
 #define ABORTED_BY_USER        -6 // Not necessarily an error, but good to know when it happens
+#define IO_ERROR               -7 // Non-file I/O error
 
 // Intended modes:
 #define XvX   0x1  // e.g. 1v1
