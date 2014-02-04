@@ -18,5 +18,15 @@ Each modification needs a module for every .h file, so that modifications aren't
 ### How to create a module:
 
 * You make a .c file, that is a source file in the C programming language, that follows the rules stated above.
-* Either drag the .c file onto the Dllfier or open up the commandline, call Dllifier with the file path as the first argument and optionally with second argument inside quotes being arguments for gcc for compilation of the file.
+* Convert the the file or files into .dll using the dllfier or mass dllfier, which can support up to 9 files at once.
 * Now you should have a .dll which you just need to put into mods directory inside the game/engine or create a new one if there isn't one already.
+
+### How to call the dllfier:
+
+You can either:
+* Drag the .c or .o (if you have already compiled the .c file) file onto the dllfier, which should act like supplying the file names as arguments to the dllfier.
+* Open the commandline, cd into the directory of the file and call dllfier with the file name being the first argument and optionally with more arguments inside quotes that will be given to gcc, when it compiles the .c file
+
+In case of using the Mass dllfier:
+* Drag the .c or .o files (you can combine both kinds) onto the Mass dllfier
+* Open the commandline, cd into the directory of the files and call the Mass dllfier (you might need quotes around the file name) with the file names of the files. Adding optional gcc arguments isn't possible currently
