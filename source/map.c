@@ -6,19 +6,19 @@
 #include "node.h"
 #include "warnings.h"
 
-error_flag create_map(map *new_map, char *name, map_settings *settings) {
+error_flag create_map(map_s *new_map, char *name, map_settings_s *settings) {
   if(name == NULL)
     return BAD_FUNCTION_ARGUMENT;
 
   if(new_map == NULL) {
-    new_map = malloc( sizeof(map) );
+    new_map = malloc( sizeof(map_s) );
 
     if(new_map == NULL)
       return OUT_OF_MEMORY_ERROR;
   }
 
   new_map->nodes = NULL;
-  new_map->amount_of_nodes = 0;
+  new_map->number_of_nodes = 0;
   new_map->name = name;
   new_map->settings = *settings;
   new_map->description = "No description yet";
@@ -27,20 +27,21 @@ error_flag create_map(map *new_map, char *name, map_settings *settings) {
 }
 
 
-error_flag free_map(map *_map) {
-  if(_map == NULL)
+error_flag free_map(map_s *map) {
+  if(map == NULL)
     return BAD_FUNCTION_ARGUMENT;
 
-  free(_map->nodes);
-  free(_map);
+  free(map->nodes);
+  free(map);
 
   return SUCCESS;
 }
 
 
-error_flag save_map(map *new_map, char *file_name) {
+error_flag save_map(map_s *new_map, char *file_name) {
   FILE *map_file;
   int flag;
+  char line[128];
 
   map_file = fopen(file_name, "wx");
 
@@ -60,58 +61,58 @@ error_flag save_map(map *new_map, char *file_name) {
 }
 
 
-error_flag load_map(map *new_map, char *file_name) {
+error_flag load_map(map_s *new_map, char *file_name) {
 
 
 }
 
-error_flag add_node_to_map(map *_map, node *_node) {
-  int i = _map->amount_of_nodes;
+error_flag add_node_to_map(map_s *map, node_s *node) {
+  int i = map->number_of_nodes;
 
-  if(_map == NULL)
+  if(map == NULL)
     return BAD_FUNCTION_ARGUMENT;
 
-  _map->nodes = realloc(_map->nodes, (i + 1) * sizeof(node **));
+  map->nodes = realloc(map->nodes, (i + 1) * sizeof(node_s **));
 
-  if(_map->nodes == NULL)
+  if(map->nodes == NULL)
     return OUT_OF_MEMORY_ERROR;
 
-  if(_node == NULL) {
-    _map->nodes[i] = &(create_node_NULL());
+  if(node == NULL) {
+    map->nodes[i] = &(create_node_NULL());
   } else {
-    _map->nodes[i] = _node;
+    map->nodes[i] = node;
   }
 
-  _map->amount_of_nodes++;
+  map->number_of_nodes++;
 
   return SUCCESS;
 }
 
 
-error_flag remove_node_from_map(map *_map, node *_node) {
+error_flag remove_node_from_map(map_s *map, node_s *node) {
   int i;
   bool node_found = false;
-  node *exchange_node;
+  node_s *exchange_node;
 
-  if(_map == NULL || _node == NULL)
+  if(map == NULL || node == NULL)
     return BAD_FUNCTION_ARGUMENT;
 
-  for(i = 0; i < _map->amount_of_nodes; i++) {
-    if(_map->nodes[i] == _node) {
+  for(i = 0; i < map->number_of_nodes; i++) {
+    if(map->nodes[i] == node) {
       node_found = true;
       break;
     }
   }
 
   if(node_found == true) {
-    for( ; i < _map->amount_of_nodes - 1; i++) {
-      exchange_node = _map->nodes[i];
-      _map->nodes[i] = _map->nodes[i+1];
-      _map->nodes[i+1] = exchange_node;
+    for( ; i < map->number_of_nodes - 1; i++) {
+      exchange_node = map->nodes[i];
+      map->nodes[i] = map->nodes[i+1];
+      map->nodes[i+1] = exchange_node;
     }
 
-    _map->amount_of_nodes--;
-  } else { // The specified node wasn't found
+    map->number_of_nodes--;
+  } else { // The specified node_s wasn't found
     return BAD_FUNCTION_ARGUMENT;
   }
 

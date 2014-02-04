@@ -19,17 +19,17 @@ typedef struct {
   float jump_cooldown;
   // Time before the current jump finishes
   float current_jump_cooldown;
-} unit_stats;
+} unit_stats_s;
 
 
 typedef struct {
   // Not sure if I need it, but would be good in general
   char *name;
 
-  unit_stats *stats;
+  unit_stats_s *stats;
 
   // Pointer to the node the unit is at
-  node *node_at;
+  node_s *node_at;
 
   // Needs to be hashed based on time of creation, place and (type or name)
   uint64_t unit_ID;
@@ -45,6 +45,6 @@ typedef struct {
 
   // The one owning the planet; -1 = AI player 1, 0 = neutral, 1 = player 1, etc.
   int8_t owner;
-} unit;
+} unit_s;
 
 #endif // UNIT_H_INCLUDED

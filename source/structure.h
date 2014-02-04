@@ -3,13 +3,17 @@
 
 #include <stdint.h>
 
+#include "node.h"
 #include "defines.h"
+
+// Needed because of structure.h being sometimes included inside node.h first
+typedef struct node_s node_s;
 
 typedef struct {
   char *name;
 
   // Pointer to the node the unit is at
-  node *node_at;
+  node_s *node_at;
 
   uint64_t structure_ID;
 
@@ -25,6 +29,6 @@ typedef struct {
 
   // The one owning the planet; -1 = AI player 1, 0 = neutral, 1 = player 1, etc.
   int8_t owner;
-} structure;
+} structure_s;
 
 #endif // STRUCTURE_H_INCLUDED

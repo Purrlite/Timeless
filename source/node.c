@@ -1,14 +1,14 @@
 #include "node.h"
 
-error_flag connect_nodes(node *node1, node *node2, node_connection_type type) {
+error_flag connect_nodes(node_s *node1, node_s *node2, node_connection_type type) {
   if(node1 == NULL || node2 == NULL)
     return BAD_FUNCTION_ARGUMENT;
 
   if((type & _1_TO_2) == true) {
     if(node1->connected_nodes == NULL) {
-      node1->connected_nodes = malloc( sizeof(node *) );
+      node1->connected_nodes = malloc( sizeof(node_s *) );
     } else {
-      node1->connected_nodes = realloc( node1->connected_nodes, sizeof(node *) * (node1->number_of_connections + 1) );
+      node1->connected_nodes = realloc( node1->connected_nodes, sizeof(node_s *) * (node1->number_of_connections + 1) );
     }
 
     if(node1->connected_nodes == NULL)
@@ -21,9 +21,10 @@ error_flag connect_nodes(node *node1, node *node2, node_connection_type type) {
 
   if((type & _2_TO_1) == true) {
     if(node2->connected_nodes == NULL) {
-      node2->connected_nodes = malloc( sizeof(node *) );
+      node2->connected_nodes = malloc( sizeof(node_s *) );
     } else {
-      node2->connected_nodes = realloc( node2->connected_nodes, sizeof(node *) * (node2->number_of_connections + 1) );
+      node2->connected_nodes = realloc( node2->connected_nodes,
+                                       sizeof(node_s *) * (node2->number_of_connections + 1) );
     }
 
     if(node2->connected_nodes == NULL)
@@ -38,7 +39,7 @@ error_flag connect_nodes(node *node1, node *node2, node_connection_type type) {
 }
 
 
-error_flag unconnect_nodes(node *node1, node *node2, node_connection_type type) {
+error_flag unconnect_nodes(node_s *node1, node_s *node2, node_connection_type type) {
   if(node1 == NULL || node2 == NULL)
     return BAD_FUNCTION_ARGUMENT;
 
@@ -68,7 +69,7 @@ error_flag unconnect_nodes(node *node1, node *node2, node_connection_type type) 
 }
 
 
-bool is_reachable(node *origin, node *destination) {
+bool is_reachable(node_s *origin, node_s *destination) {
 
 
 }

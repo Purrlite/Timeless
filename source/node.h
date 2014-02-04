@@ -34,7 +34,7 @@ typedef struct {
   unsigned has_unlimited_common_resource   :1 ;
   unsigned has_unlimited_uncommon_resource :1 ;
   unsigned has_unlimited_rare_resource     :1 ;
-} node_bools;
+} node_bools_s;
 
 // Max and current amount of resources on the planet
 typedef struct {
@@ -44,23 +44,23 @@ typedef struct {
   uint32_t common;
   uint32_t uncommon;
   uint32_t rare;
-} node_resources;
+} node_resources_s;
 
-typedef struct NODE {
+typedef struct node_s {
   char *name;
 
   // Array of pointers to structures on the planet
-  structure *structures;
+  structure_s *structures;
 
   // Array of pointers to units on the planet
-  unit *units;
+  unit_s *units;
 
-  node_resources *resources;
+  node_resources_s *resources;
 
   // Array of pointers of connected nodes
-  struct NODE **connected_nodes;
+  struct node_s **connected_nodes;
 
-  node_bools bools;
+  node_bools_s bools;
 
   uint32_t shield_health;
 
@@ -74,9 +74,9 @@ typedef struct NODE {
 
   // The one owning the planet; -1 = AI player 1, 0 = neutral, 1 = player 1, etc.
   int8_t owner;
-} node;
+} node_s;
 
-#define create_node_bool(shield, colonized, colonizable, visible, in_FOW, starting_planet,\
+#define create_node_bools(shield, colonized, colonizable, visible, in_FOW, starting_planet,\
                          unlimited_CR, unlimited_UR, unlimited_RR)\
   ( { shield, colonized, colonizable, visible, in_FOW, starting_planet, unlimited_CR,\
 unlimited_UR, unlimited_RR } )
@@ -91,15 +91,15 @@ unlimited_UR, unlimited_RR } )
 number_of_connections, type, owner } )
 
 #define create_node_NULL() \
-  (node){.name = NULL }
+  (node_s){ .name = NULL }
 
-// Connects 2 nodes together; can connect them to work only 1 way or both ways
-error_flag connect_nodes(node *node1, node *node2, node_connection_type type) ;
+// Connects 2 node_ss together; can connect them to work only 1 way or both ways
+error_flag connect_nodes(node_s *node1, node_s *node2, node_connection_type type) ;
 
-// Disconnects specified connection(s) between nodes
-error_flag unconnect_nodes(node *node1, node *node2, node_connection_type type) ;
+// Disconnects specified connection(s) between node_ss
+error_flag unconnect_nodes(node_s *node1, node_s *node2, node_connection_type type) ;
 
 // Returns whether or not it's possible to reach destination from origin
-bool is_reachable(node *origin, node *destination) ;
+bool is_reachable(node_s *origin, node_s *destination) ;
 
 #endif // PLANET_H_INCLUDED
