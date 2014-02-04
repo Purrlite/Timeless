@@ -29,6 +29,10 @@ In case of using the Mass dllfier:
 * Drag the .c or .o files (you can combine both kinds) onto the Mass dllfier
 * Open the commandline, cd into the directory of the files and call the Mass dllfier (you might need quotes around the file name) with the file names of the files. Adding optional gcc arguments isn't possible currently
 
+### Files that shouldn't be modules:
+
+* module.*
+
 ## Information about the dllfier
 
 The dllfier transforms .c or .o files into .dll files that are ready to be used as modules. Every .c file is compiled under the C11 standard.
