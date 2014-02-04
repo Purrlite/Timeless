@@ -2,17 +2,13 @@
 
 Modules are used to specify implementation of functions and thus how the game acts.
 
-Each modification needs a module for every .h file, so that modifications aren't dependant on each other.
+Each modification needs a module for every .h file, so that modifications aren't dependant on each other. If you want to add a module from an already existing modification without changing it, then just copy it and change the name of the file to fit your modification's name.
 
 ## Information about modules:
 
 ### What rules modules need to follow:
 
 * All modules need to contain all functions specified inside their respective .h (header) file
-* All modules need to contain the module_info structure with information about the module. The information inside the module_info struct:
-    * Modification name
-	* Modification abbreviation (max 7 characters)
-	* Version of the file (not of the modification/game itself)
 * Name of module needs to use this naming convention: <header name><game mod's abbreviated name>.c/dll (e.g. unitEX.c)
 
 ### How to create a module:
