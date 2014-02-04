@@ -4,3 +4,4 @@ main.c
 # Irrelevant stuff for now
 ./bin/*
 ./obj/*
+"./game source/*"
