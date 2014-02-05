@@ -17,3 +17,4 @@ The engine works with a map made out of nodes, which act as places where you can
 * Get timewaves, timeline and commands working
 * Make the engine easily scriptable to the point that you can make the whole game just using scripts
 * Get prototype working
+* Find a way to get the game to be moddable in a safe way
