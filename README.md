@@ -8,13 +8,6 @@ The engine for making a multiplayer strategy game with an active time travel mec
 
 The engine works with a map made out of nodes, which act as places where you can build structures and your units fight. The nodes are abstract and don't have any sub-maps on them, so there is no positioning of units involved.
 
+The engine will mainly support Windows, but might support Linux and OS X too in the future.
 
-### TODO:
-* Make a settings file that people can edit to change stuff like default values that are assigned to maps or unit, structure and node types, etc. (needed for saving maps)
-* Get nodes and maps working
-* Make a viewable map with nodes working (Maybe also make a map viewer.exe or something
-* Get Structures and units working
-* Get timewaves, timeline and commands working
-* Make the engine easily scriptable to the point that you can make the whole game just using scripts
-* Get prototype working
-* Find a way to get the game to be moddable in a safe way
+[TODO](https://github.com/Purlox/Timeless/blob/master/TODO.md)
