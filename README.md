@@ -10,4 +10,5 @@ The engine works with a map made out of nodes, which act as places where you can
 
 The engine will mainly support Windows, but might support Linux and OS X too in the future.
 
-[TODO](https://github.com/Purlox/Timeless/blob/master/TODO.md)
+
+[TODO list](https://github.com/Purlox/Timeless/blob/master/TODO.md)
