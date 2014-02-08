@@ -1,7 +1,9 @@
 # Code to test out the engine
-main.c
+./source/main.c
 
 # Irrelevant stuff for now
 ./bin/*
 ./obj/*
-"./game source/*"
+
+# Just project setup in CodeBlocks
+./Timeless.*
