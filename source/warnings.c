@@ -2,9 +2,8 @@
 #include <stdio.h>
 
 #include "warnings.h"
-#include "errors.h"
 
-error_flag overwrite_file_message(char *file_name) {
+bool overwrite_file_message(char *file_name) {
   char answer;
 
   printf("Do you want to overwrite file %s ? [Y/N] ", file_name);
