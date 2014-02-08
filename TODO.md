@@ -19,9 +19,6 @@ _Reserved for game breaking bugs mainly._
 
 * Make a settings file parser that will load stuff like resolution, default values for maps, etc.
 * Add ability to see two points in time at once
-* Add more races
 * Make the engine scriptable (at least so that units, structures, nodes, maps etc. are easy to create, add, change, remove, etc.)
 
 ### Low priority:
-
-* Get nice art assets
