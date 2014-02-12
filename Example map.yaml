@@ -7,11 +7,9 @@ description: Just a simple map to show how maps are saved.
 map settings:
     min players: 2
     max players: 4
-    modes:
-        - XvX
-        - FFA
+    modes: [ XvX, FFA ]
 
-### Three '#' are used to separate different nodes and the rest
+---
 
 name: Earth    &node1 # Used for connecting to other nodes
 type: Big planet
@@ -25,7 +23,7 @@ bools:
 Connected nodes:
     - *node3
     
-###
+---
 
 Name: Htrea    &node2
 Type: Big Planet
@@ -39,7 +37,7 @@ bools:
 Connected nodes:
     - *node3
 
-###
+---
 
 Name: None    &node3
 Type: Empty
@@ -49,7 +47,7 @@ connected nodes:
     - *node2
     - *node4
     
-###
+---
 
 Name: Anthea   &node4
 Type: Medium Planet
@@ -59,7 +57,7 @@ Rare resources: 100
 Connected nodes:
     - *node3
     
-###
+---
 
 Name: Nerto    &node5
 Type: Asteroids
