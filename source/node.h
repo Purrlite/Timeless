@@ -19,7 +19,7 @@ typedef struct {
   unsigned is_colonized                    :1 ;
   unsigned is_colonizable                  :1 ;
 
-  unsigned is_destructible                 :1 ;
+  unsigned is_destroyable                  :1 ;
 
   // For hiding planets that you don't have connection to
   unsigned is_visible                      :1 ;
@@ -76,9 +76,9 @@ typedef struct node_s {
   int8_t owner;
 } node_s;
 
-#define create_node_bools(shield, colonized, colonizable, visible, in_FOW, starting_planet,\
-                         unlimited_CR, unlimited_UR, unlimited_RR)\
-  ( { shield, colonized, colonizable, visible, in_FOW, starting_planet, unlimited_CR,\
+#define create_node_bools(shield, colonized, colonizable, destroyable, visible, in_FOW, \
+                          starting_planet, unlimited_CR, unlimited_UR, unlimited_RR) \
+  ( { shield, colonized, colonizable, destroyable, visible, in_FOW, starting_planet, unlimited_CR,\
 unlimited_UR, unlimited_RR } )
 
 #define create_node_resources(max_common, max_uncommon, max_rare, common, uncommon, rare)\
@@ -87,7 +87,7 @@ unlimited_UR, unlimited_RR } )
 // Creates a new node (might rework later)
 #define create_node(name, structures, units, connected_nodes, bools, resources, shield_health,\
                  planet_health, number_of_connections, type, owner)\
-  ( { name, structures, units, connected_nodes, bools, resources, shield_health, planet_health,\
+  ( { name, structures, units, resources, connected_nodes, bools, shield_health, planet_health,\
 number_of_connections, type, owner } )
 
 #define create_node_NULL() \
