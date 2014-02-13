@@ -31,8 +31,8 @@ error_flag create_map(map_s *new_map, char *name, map_settings_s *settings) ;
 // Frees/deallocs the map
 error_flag free_map(map_s *map) ;
 
-error_flag save_map(map_s *map, char *file_name, node_s *default_values) ;
-error_flag load_map(map_s *map, char *file_name, node_s *default_values) ;
+error_flag save_map(map_s *map, char *file_name, node_s **default_values, int number_of_defaults) ;
+error_flag load_map(map_s *map, char *file_name, node_s **default_values, int number_of_defaults) ;
 
 error_flag add_node_to_map(map_s *map, node_s *node) ;
 error_flag remove_node_from_map(map_s *map, node_s *node) ;
