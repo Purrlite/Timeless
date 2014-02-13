@@ -50,6 +50,8 @@ static void save_node(FILE *file, map_s *map, node_s *node, node_s **default_val
   for(_default = 0; _default < number_of_defaults; _default++) {
     if(node->type == default_values[_default]->type)
       break;
+    if(_default == number_of_defaults - 1)
+      _default = 0;
   }
 
   YAML_START_OF_STREAM(file);
