@@ -126,7 +126,7 @@ static void save_node(FILE *file, map_s *map, node_s *node, node_s **default_val
 
 
 error_flag create_map(map_s *new_map, char *name, map_settings_s *settings) {
-  if(name == NULL)
+  if(name == NULL || settings == NULL)
     return BAD_FUNCTION_ARGUMENT;
 
   if(new_map == NULL) {
