@@ -50,6 +50,8 @@ static void save_node(FILE *file, map_s *map, node_s *node, node_s **default_val
   for(_default = 0; _default < number_of_defaults; _default++) {
     if(node->type == default_values[_default]->type)
       break;
+
+    // If it can't find the correct type, then use the first one.
     if(_default == number_of_defaults - 1)
       _default = 0;
   }
@@ -249,7 +251,7 @@ error_flag remove_node_from_map(map_s *map, node_s *node) {
     }
 
     map->number_of_nodes--;
-  } else { // The specified node_s wasn't found
+  } else {
     return BAD_FUNCTION_ARGUMENT;
   }
 
