@@ -85,7 +85,7 @@ unlimited_UR, unlimited_RR } )
   ( { max_common, max_uncommon, max_rare, common, uncommon, rare } )
 
 // Creates a new node (might rework later)
-#define create_node(name, structures, units, connected_nodes, bools, resources, shield_health, \
+#define create_node(name, structures, units, resources, connected_nodes, bools, shield_health, \
                  planet_health, number_of_connections, type, owner) \
   ( { name, structures, units, resources, connected_nodes, bools, shield_health, planet_health, \
 number_of_connections, type, owner } )
