@@ -1,5 +1,44 @@
 #include "node.h"
 
+error_flag create_node(node_s *new_node, char *name, node_resources_s *resources,
+                       node_bools_s *bools) {
+  if(new_node == NULL)
+    return BAD_FUNCTION_ARGUMENT;
+
+  if(resources == NULL)
+    new_node->resources = &((node_resources_s){0});
+  else
+    new_node->resources = resources;
+
+  if(bools == NULL)
+    new_node->bools = (node_bools_s){0};
+  else
+    new_node->bools = *bools;
+
+  new_node->name = name;
+  new_node->resources = resources;
+  new_node->structures = NULL;
+  new_node->units = NULL;
+  new_node->connected_nodes = NULL;
+  new_node->number_of_connections = 0;
+  new_node->shield_health = 0;
+  new_node->planet_health = 0;
+  new_node->number_of_structures = 0;
+  new_node->number_of_units = 0;
+  new_node->type = NONE;
+  new_node->owner = NEUTRAL;
+
+  return SUCCESS;
+}
+
+
+void free_node(node_s *node) {
+  free(node->units);
+  free(node->structures);
+  free(node->connected_nodes);
+}
+
+
 error_flag connect_nodes(node_s *node1, node_s *node2, node_connection_type type) {
   if(node1 == NULL || node2 == NULL)
     return BAD_FUNCTION_ARGUMENT;
@@ -8,7 +47,8 @@ error_flag connect_nodes(node_s *node1, node_s *node2, node_connection_type type
     if(node1->connected_nodes == NULL) {
       node1->connected_nodes = malloc( sizeof(node_s *) );
     } else {
-      node1->connected_nodes = realloc( node1->connected_nodes, sizeof(node_s *) * (node1->number_of_connections + 1) );
+      node1->connected_nodes = realloc( node1->connected_nodes,
+                                        sizeof(node_s *) * (node1->number_of_connections + 1) );
     }
 
     if(node1->connected_nodes == NULL)
@@ -24,7 +64,7 @@ error_flag connect_nodes(node_s *node1, node_s *node2, node_connection_type type
       node2->connected_nodes = malloc( sizeof(node_s *) );
     } else {
       node2->connected_nodes = realloc( node2->connected_nodes,
-                                       sizeof(node_s *) * (node2->number_of_connections + 1) );
+                                        sizeof(node_s *) * (node2->number_of_connections + 1) );
     }
 
     if(node2->connected_nodes == NULL)

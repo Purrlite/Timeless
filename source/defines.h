@@ -4,6 +4,7 @@
 // General:
 #define NONE       0
 #define NEUTRAL    0
+#define _Out
 
 // Errors:
 #define SUCCESS                 0

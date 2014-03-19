@@ -36,7 +36,7 @@ typedef struct {
   unsigned has_unlimited_rare_resource     :1 ;
 } node_bools_s;
 
-// Max and current amount of resources on the planet
+
 typedef struct {
   uint32_t max_common;
   uint32_t max_uncommon;
@@ -46,14 +46,15 @@ typedef struct {
   uint32_t rare;
 } node_resources_s;
 
+
 typedef struct node_s {
   char *name;
 
   // Array of pointers to structures on the planet
-  structure_s *structures;
+  structure_s **structures;
 
   // Array of pointers to units on the planet
-  unit_s *units;
+  unit_s **units;
 
   node_resources_s *resources;
 
@@ -70,28 +71,36 @@ typedef struct node_s {
   // Number of nodes connected to this node
   uint8_t number_of_connections;
 
+  uint8_t number_of_structures;
+  uint8_t number_of_units;
+
   uint8_t type;
 
   // The one owning the planet; -1 = AI player 1, 0 = neutral, 1 = player 1, etc.
   int8_t owner;
 } node_s;
 
+
 #define create_node_bools(shield, colonized, colonizable, destroyable, visible, in_FOW, \
                           starting_planet, unlimited_CR, unlimited_UR, unlimited_RR) \
-  ( { shield, colonized, colonizable, destroyable, visible, in_FOW, starting_planet, unlimited_CR,\
-unlimited_UR, unlimited_RR } )
+  (node_bools_s){ shield, colonized, colonizable, destroyable, visible, in_FOW, starting_planet, \
+unlimited_CR, unlimited_UR, unlimited_RR }
+
+#define create_node_bools_NULL() \
+  (node_bools_s){ .has_shield = 0 }
 
 #define create_node_resources(max_common, max_uncommon, max_rare, common, uncommon, rare) \
-  ( { max_common, max_uncommon, max_rare, common, uncommon, rare } )
+  (node_resources_s){ max_common, max_uncommon, max_rare, common, uncommon, rare }
 
-// Creates a new node (might rework later)
-#define create_node(name, structures, units, resources, connected_nodes, bools, shield_health, \
-                 planet_health, number_of_connections, type, owner) \
-  ( { name, structures, units, resources, connected_nodes, bools, shield_health, planet_health, \
-number_of_connections, type, owner } )
+#define create_node_resources_NULL() \
+  (node_resources_s){ .max_common = 0 }
 
-#define create_node_NULL() \
-  (node_s){ .name = NULL }
+error_flag create_node(node_s *new_node, char *name, node_resources_s *resources,
+                       node_bools_s *bools) ;
+
+#define create_node_NULL(node) create_node(node, NULL, NULL, NULL);
+
+void free_node(node_s *node);
 
 // Connects 2 node_ss together; can connect them to work only 1 way or both ways
 error_flag connect_nodes(node_s *node1, node_s *node2, node_connection_type type) ;
