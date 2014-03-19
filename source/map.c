@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 
 #include "yaml_parser.h"
 #include "map.h"
@@ -74,19 +75,6 @@ static error_flag save_node(FILE *file, map_s *map, node_s *node, node_s *defaul
   else
     fputs("Owner: Neutral\n", file);
 
-  if(node->resources->common != default_values[_default].resources->common)
-    fprintf(file, "Common resources: %ld\n", node->resources->common);
-  if(node->resources->uncommon != default_values[_default].resources->uncommon)
-    fprintf(file, "Uncommon resources: %ld\n", node->resources->uncommon);
-  if(node->resources->rare != default_values[_default].resources->rare)
-    fprintf(file, "Rare resources: %ld\n", node->resources->rare);
-  if(node->resources->max_common != default_values[_default].resources->max_common)
-    fprintf(file, "Common resources: %ld\n", node->resources->max_common);
-  if(node->resources->max_uncommon != default_values[_default].resources->max_uncommon)
-    fprintf(file, "Uncommon resources: %ld\n", node->resources->max_uncommon);
-  if(node->resources->max_rare != default_values[_default].resources->max_rare)
-    fprintf(file, "Rare resources: %ld\n", node->resources->max_rare);
-
   if(node->planet_health != default_values[_default].planet_health)
     fprintf(file, "Planet health: %ld\n", node->planet_health);
   if(node->shield_health != default_values[_default].shield_health)
@@ -94,12 +82,6 @@ static error_flag save_node(FILE *file, map_s *map, node_s *node, node_s *defaul
 
   fputs("\nBools:\n", file);
 
-  IF_PRINT(node->bools.has_unlimited_common_resource,
-           default_values[_default].bools.has_unlimited_common_resource, "Has unlimited CR: ")
-  IF_PRINT(node->bools.has_unlimited_uncommon_resource,
-           default_values[_default].bools.has_unlimited_uncommon_resource, "Has unlimited UR: ")
-  IF_PRINT(node->bools.has_unlimited_rare_resource,
-           default_values[_default].bools.has_unlimited_rare_resource, "Has unlimited RR: ")
   IF_PRINT(node->bools.has_shield, default_values[_default].bools.has_shield, "Has shield: ")
   IF_PRINT(node->bools.is_a_starting_planet, default_values[_default].bools.is_a_starting_planet,
            "Is a starting planet: ")
@@ -114,10 +96,18 @@ static error_flag save_node(FILE *file, map_s *map, node_s *node, node_s *defaul
   fputs("\nConnected nodes:\n", file);
 
   if(node->number_of_connections == 0) {
-    YAML_print_list(file, (char **)&"None", 1, 1 );
+    node_names = malloc(sizeof(node_names));
+    *node_names = malloc(5);
+    strncpy(*node_names, "none", 5);
+
+    YAML_print_list(file, node_names, 1, 1 );
+
+    free(*node_names);
+    free(node_names);
   } else {
-    YAML_print_list(file, node_names = get_node_names(map, node->connected_nodes,
-                    node->number_of_connections), node->number_of_connections, 1);
+    node_names = get_node_names(map, node->connected_nodes, node->number_of_connections);
+
+    YAML_print_list(file, node_names, node->number_of_connections, 1);
 
     for(i = 0; i < node->number_of_connections; i++)
       free(node_names[i]);
@@ -196,8 +186,11 @@ error_flag save_map(map_s *map, char *file_name, node_s *default_values, int num
           map->settings.min_players, map->settings.max_players);
   YAML_print_inlined_list(map_file, map->modes, map->number_of_modes);
 
-  for(i = 0; i < map->number_of_nodes; i++)
+  fputs("\n", map_file);
+
+  for(i = 0; i < map->number_of_nodes; i++) {
     save_node(map_file, map, &(map->nodes[i]), default_values, number_of_defaults);
+  }
 
   YAML_END_OF_FILE(map_file);
 

@@ -1,14 +1,8 @@
 #include "node.h"
 
-error_flag create_node(node_s *new_node, char *name, node_resources_s *resources,
-                       node_bools_s *bools) {
+error_flag create_node(node_s *new_node, char *name, node_bools_s *bools) {
   if(new_node == NULL)
     return BAD_FUNCTION_ARGUMENT;
-
-  if(resources == NULL)
-    new_node->resources = &((node_resources_s){0});
-  else
-    new_node->resources = resources;
 
   if(bools == NULL)
     new_node->bools = (node_bools_s){0};
@@ -16,7 +10,6 @@ error_flag create_node(node_s *new_node, char *name, node_resources_s *resources
     new_node->bools = *bools;
 
   new_node->name = name;
-  new_node->resources = resources;
   new_node->structures = NULL;
   new_node->units = NULL;
   new_node->connected_nodes = NULL;

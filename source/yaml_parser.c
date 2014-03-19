@@ -14,7 +14,7 @@ error_flag YAML_print_list(FILE *file, char **list, int number_of_items, int ind
     total_indentation[i * 4 + 2] = ' ';
     total_indentation[i * 4 + 3] = ' ';
   }
-  total_indentation[i * 4 + 4] = '\n';
+  total_indentation[(i - 1) * 4 + 4] = '\0';
 
   for(i = 0; i < number_of_items; i++)
     fprintf(file, "%s- %s\n", total_indentation, list[i]);

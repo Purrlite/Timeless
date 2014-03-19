@@ -29,22 +29,7 @@ typedef struct {
 
   // Might not be needed, but could be useful when loading maps
   unsigned is_a_starting_planet            :1 ;
-
-  // If it has limited or unlimited amount of resources.
-  unsigned has_unlimited_common_resource   :1 ;
-  unsigned has_unlimited_uncommon_resource :1 ;
-  unsigned has_unlimited_rare_resource     :1 ;
 } node_bools_s;
-
-
-typedef struct {
-  uint32_t max_common;
-  uint32_t max_uncommon;
-  uint32_t max_rare;
-  uint32_t common;
-  uint32_t uncommon;
-  uint32_t rare;
-} node_resources_s;
 
 
 typedef struct node_s {
@@ -55,8 +40,6 @@ typedef struct node_s {
 
   // Array of pointers to units on the planet
   unit_s **units;
-
-  node_resources_s *resources;
 
   // Array of pointers of connected nodes
   struct node_s **connected_nodes;
@@ -82,21 +65,13 @@ typedef struct node_s {
 
 
 #define create_node_bools(shield, colonized, colonizable, destroyable, visible, in_FOW, \
-                          starting_planet, unlimited_CR, unlimited_UR, unlimited_RR) \
-  (node_bools_s){ shield, colonized, colonizable, destroyable, visible, in_FOW, starting_planet, \
-unlimited_CR, unlimited_UR, unlimited_RR }
+                          starting_planet) \
+  (node_bools_s){ shield, colonized, colonizable, destroyable, visible, in_FOW, starting_planet }
 
 #define create_node_bools_NULL() \
   (node_bools_s){ .has_shield = 0 }
 
-#define create_node_resources(max_common, max_uncommon, max_rare, common, uncommon, rare) \
-  (node_resources_s){ max_common, max_uncommon, max_rare, common, uncommon, rare }
-
-#define create_node_resources_NULL() \
-  (node_resources_s){ .max_common = 0 }
-
-error_flag create_node(node_s *new_node, char *name, node_resources_s *resources,
-                       node_bools_s *bools) ;
+error_flag create_node(node_s *new_node, char *name, node_bools_s *bools) ;
 
 #define create_node_NULL(node) create_node(node, NULL, NULL, NULL);
 
