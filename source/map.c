@@ -156,7 +156,7 @@ error_flag save_map(map_s *map, char *file_name, node_s *default_values, int num
   bool overwrite;
   int i;
 
-  if(map == NULL)
+  if(map == NULL || default_values == NULL)
     return BAD_FUNCTION_ARGUMENT;
 
   map_file = fopen(file_name, "wx");
@@ -201,8 +201,37 @@ error_flag save_map(map_s *map, char *file_name, node_s *default_values, int num
 
 
 error_flag load_map(map_s *map, char *file_name, node_s *default_values, int number_of_defaults) {
+  FILE *map_file;
+  char *line;
+  error_flag error = SUCCESS;
+
+  if(map == NULL || default_values == NULL)
+    return BAD_FUNCTION_ARGUMENT;
+
+  line = malloc(128);
+
+  if(line == NULL) {
+    error = OUT_OF_MEMORY_ERROR;
+    goto line_error;
+  }
+
+  map_file = fopen(file_name, "r");
+  if(map_file == NULL) {
+    error = FILE_ERROR;
+    goto fopen_error;
+  }
 
 
+
+
+
+  fclose(map_file);
+fopen_error:
+
+  free(line);
+line_error:
+
+  return error;
 }
 
 error_flag add_node_to_map(map_s *map, node_s *node) {
