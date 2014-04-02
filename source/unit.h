@@ -34,10 +34,8 @@ typedef struct {
   // Needs to be hashed based on time of creation, place and (type or name)
   uint64_t unit_ID;
 
-  /* How many units it takes for them to count as 1 unit for CE purposes although even when the
-      amount of units being controlled is under this number, it will still take 1 CE to order them.
-  */
-  uint16_t units_per_1CE_order;
+  // CE consumption is always rounded up to nearest int.
+  float CE_coefficient;
 
   uint8_t type;
 
