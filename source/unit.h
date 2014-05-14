@@ -23,9 +23,6 @@ typedef struct {
 
 
 typedef struct {
-  // Not sure if I need it, but would be good in general
-  char *name;
-
   unit_stats_s *stats;
 
   // Pointer to the node the unit is at
