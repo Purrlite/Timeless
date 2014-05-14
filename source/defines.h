@@ -2,8 +2,7 @@
 #define DEFINES_H_INCLUDED
 
 // General:
-#define NONE       0
-#define NEUTRAL    0
+#define NONE 0
 #define _Out
 
 // Errors:
@@ -27,22 +26,9 @@
 #define BOTH_WAYS 0x3
 
 // Owner:
-#define PLAYER_1 1
-#define PLAYER_2 2
-#define PLAYER_3 3
-#define PLAYER_4 4
-#define PLAYER_5 5
-#define PLAYER_6 6
-#define PLAYER_7 7
-#define PLAYER_8 8
-#define AI_1     -1
-#define AI_2     -2
-#define AI_3     -3
-#define AI_4     -4
-#define AI_5     -5
-#define AI_6     -6
-#define AI_7     -7
-#define AI_8     -8
+#define NEUTRAL    0
+#define PLAYER(n)  n
+#define AI(n)     -n
 
 // Placement of structures:
 #define ORBIT       1
