@@ -19,6 +19,9 @@ typedef struct {
   float jump_cooldown;
   // Current amount of seconds before the current planet jump finishes
   float current_jump_cooldown;
+
+  // Coefficient of how much CE an order of this type of unit takes; Always rounded up when used.
+  float CE_coefficient;
 } unit_stats_s;
 
 
@@ -30,9 +33,6 @@ typedef struct {
 
   // Needs to be hashed based on time of creation, place and type
   uint64_t unit_ID;
-
-  // Coefficient of how much CE an order of this type of unit takes; Always rounded up when used.
-  float CE_coefficient;
 
   uint8_t type;
 
