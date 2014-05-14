@@ -15,9 +15,9 @@ typedef struct {
   // Current cooldown = time before next attack
   float current_attack_cooldown;
 
-  // Time it takes before planet jump is finished
+  // Number of seconds before planet jump is finished
   float jump_cooldown;
-  // Time before the current jump finishes
+  // Current amount of seconds before the current planet jump finishes
   float current_jump_cooldown;
 } unit_stats_s;
 
@@ -31,17 +31,16 @@ typedef struct {
   // Pointer to the node the unit is at
   node_s *node_at;
 
-  // Needs to be hashed based on time of creation, place and (type or name)
+  // Needs to be hashed based on time of creation, place and type
   uint64_t unit_ID;
 
-  // CE consumption is always rounded up to nearest int.
+  // Coefficient of how much CE an order of this type of unit takes; Always rounded up when used.
   float CE_coefficient;
 
   uint8_t type;
 
   uint8_t faction;
 
-  // The one owning the planet; -1 = AI player 1, 0 = neutral, 1 = player 1, etc.
   int8_t owner;
 } unit_s;
 

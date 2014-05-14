@@ -5,7 +5,6 @@
 
 #include "defines.h"
 
-// To make it easier to see if a function returns or gets error numbers
 typedef int error_flag;
 
 // Writes a message to stderr if an error has occurred, otherwise does nothing.

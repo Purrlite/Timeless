@@ -29,11 +29,12 @@ typedef struct {
 
 error_flag create_map(map_s *new_map, char *name, map_settings_s *settings) ;
 
-// Frees/deallocs the map
 error_flag free_map(map_s *map) ;
 
-// Saves/Loads a map
-//  - default values are meant for each node type, but if node type isn't found, then 1. is used
+/* Saves/Loads a map
+ *  - default values are used for each node type, but if node type isn't found, then 1. node in
+ *    default nodes is used.
+ */
 error_flag save_map(map_s *map, char *file_name, node_s *default_values, int number_of_defaults) ;
 error_flag load_map(map_s *map, char *file_name, node_s *default_values, int number_of_defaults) ;
 
