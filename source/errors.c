@@ -33,7 +33,7 @@ void write_error_message(error_flag flag, bool fatal) {
   }
 
   if(true == fatal)
-    fputs("Fatal error occurred, shutting down. :<\n", stderr);
+    fputs("Fatal error occurred, shutting down. :(\n", stderr);
 
   return;
 }
