@@ -22,9 +22,9 @@
 #define FFA   0x4  // Free for all
 
 // Node connection types:
-#define _1_TO_2   1
-#define _2_TO_1   2
-#define BOTH_WAYS 3
+#define _1_TO_2   0x1
+#define _2_TO_1   0x2
+#define BOTH_WAYS 0x3
 
 // Owner:
 #define PLAYER_1 1
