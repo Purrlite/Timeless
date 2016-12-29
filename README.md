@@ -1,6 +1,6 @@
 ﻿# Timeless
 
-A 2D meta-time strategy engine written in C.
+A (unfinished) 2D meta-time strategy engine written in C.
 
 ## Description:
 
